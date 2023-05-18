@@ -14,7 +14,7 @@ public class CalculadoraSocket extends AsyncTask<Void, Void, String> {
 
     TextView tv;
     String oper1,oper2;
-    int operacao; // 1-somar 2-subtrair 3-dividir 4-multiplicar
+    int operacao; // 1-somar 2-subtrair 3-multiplicar 4-dividir
     PrecisaCalcular pc;
     
     public CalculadoraSocket(TextView tv, String oper1, String oper2, int operacao){

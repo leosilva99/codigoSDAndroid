@@ -22,6 +22,7 @@ public class CalculadoraHttpPOST extends AsyncTask<Void, Void, String> {
 
     TextView tv;
     String oper1,oper2;
+    int operacao; // 1-somar 2-subtrair 3-multiplicar 4-dividir
     PrecisaCalcular pc;
     public CalculadoraHttpPOST(TextView tv, String oper1, String oper2){
         this.tv=tv;
@@ -29,11 +30,12 @@ public class CalculadoraHttpPOST extends AsyncTask<Void, Void, String> {
         this.oper2=oper2;
 
     }
-    public CalculadoraHttpPOST(PrecisaCalcular pc, String oper1, String oper2){
+    public CalculadoraHttpPOST(PrecisaCalcular pc, String oper1, String oper2, int operacao){
         this.tv=tv;
         this.oper1=oper1;
         this.oper2=oper2;
         this.pc=pc;
+        this.operacao=operacao;
 
     }
     @Override

@@ -31,12 +31,12 @@ public class PrecisaCalcular {
     }
 
     public void calculoRemoto(int operacao){
-        CalculadoraSocket shs = new CalculadoraSocket(this, "15", "15", operacao);
+        CalculadoraSocket shs = new CalculadoraSocket(this, "20", "20", operacao);
         shs.execute();
 
     }
     public void calculoRemotoHTTP(int operacao){
-        CalculadoraHttpPOST shs = new CalculadoraHttpPOST(this, "15", "15", operacao);
+        CalculadoraHttpPOST shs = new CalculadoraHttpPOST(this, "20", "20", operacao);
         shs.execute();
 
     }
