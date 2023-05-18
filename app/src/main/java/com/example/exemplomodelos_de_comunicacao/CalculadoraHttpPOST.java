@@ -40,46 +40,46 @@ public class CalculadoraHttpPOST extends AsyncTask<Void, Void, String> {
     protected String doInBackground(Void... voids) {
         String result="";
         try {
-
-           URL url = new URL("https://double-nirvana-273602.appspot.com/?hl=pt-BR");
-           HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
+            URL url = new URL("https://double-nirvana-273602.appspot.com/?hl=pt-BR");
+            HttpsURLConnection conn = (HttpsURLConnection) url.openConnection();
             conn.setReadTimeout(10000);
             conn.setConnectTimeout(15000);
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true) ;
-
+    
             //ENVIO DOS PARAMETROS
             OutputStream os = conn.getOutputStream();
             BufferedWriter writer = new BufferedWriter(
-                    new OutputStreamWriter(os, "UTF-8"));
-            writer.write("oper1="+oper1+"&oper2="+oper2+"&operacao=1");
+                new OutputStreamWriter(os, "UTF-8"));
+            
+            //1-somar 2-subtrair 3-dividir 4-multiplicar
+            writer.write("oper1="+oper1+"&oper2="+oper2+"&operacao="+operacao);
             writer.flush();
             writer.close();
             os.close();
-
-            int responseCode=conn.getResponseCode();
+    
+            int responseCode = conn.getResponseCode();
             if (responseCode == HttpsURLConnection.HTTP_OK) {
-
+    
                 //RECBIMENTO DOS PARAMETROS
-
-
                 BufferedReader br = new BufferedReader(
-                        new InputStreamReader(conn.getInputStream(), "utf-8"));
+                    new InputStreamReader(conn.getInputStream(), "utf-8"));
+                
                 StringBuilder response = new StringBuilder();
                 String responseLine = null;
+                
                 while ((responseLine = br.readLine()) != null) {
                     response.append(responseLine.trim());
                 }
+                
                 result = response.toString();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-
         return result;
-        //Codigo
     }
 
 
